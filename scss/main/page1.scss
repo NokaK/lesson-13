@@ -1,0 +1,50 @@
+@import "../modules/variable.scss";
+@import "../modules/private.scss";
+@import "../modules/mixins.scss";
+@import "../modules/functions.scss";
+
+$rainbow: purple aqua lime yellow orange red;
+
+@for $i from 1 through 6 {
+	li:nth-child(#{$i}) {
+		color: nth($rainbow, $i);
+	}
+}
+ul{
+    li{
+        font-size: 100px;
+    }
+}
+#about-us {
+    @extend %container;
+    @extend %flex;
+    @include flex-positions (space-between, center);
+    .box{
+        height: $size01;
+        width: $size03;
+        @include width (700px);
+        // width: func(100px,200px);
+        @media screen and (max-width: 1024px){
+            height: $size02;
+        }
+        @media screen and (max-width: 768px){
+            height: $size03;
+        }
+        background-image:url(https://images.pexels.com/photos/949587/pexels-photo-949587.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+        @include background(cover,no-repeat,center);
+        &:nth-child(2n){
+            background-image: none;
+            background-color: $color02 ;
+        }
+        &:hover{
+            height: $size01;
+        }
+        &:after{
+            content: "";
+            display:block;
+            height: $size01;
+            width: 3px;
+            background: $color03; 
+        }
+    }
+}

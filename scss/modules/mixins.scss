@@ -1,0 +1,23 @@
+@import  "./variable.scss";
+
+@mixin flex-positions($horizontal, $verical){
+    justify-content: $horizontal;
+    align-items: $verical;
+}
+
+@mixin background($bgsize,$bgrepeat,$bgpositions){
+    background-size:$bgsize;
+    background-repeat: $bgrepeat;
+    background-position: $bgpositions;
+}
+
+@mixin width($size) {
+    @if $size == $size01 {
+        background:$color01
+    }@else if $size == $size02{
+        background:$color02
+    }@else {
+        background:$color03
+    }
+}
+
